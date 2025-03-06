@@ -1,0 +1,32 @@
+body, div, p, h1, h2, h3, section {
+  font-family: "Arvo", "JetBrains Mono" !important;
+}
+
+.blue {
+    color: #518bff !important;
+}
+
+.yellow {
+    color: #e5c073 !important;
+}
+
+.green {
+    color: #96c178 !important;
+}
+
+.red {
+    color: #bb5e66 !important;
+}
+
+h3 {
+    font-size: 3rem !important;
+}
+
+p, li {
+    font-size: 2rem !important;
+}
+
+del {
+    opacity: 0.5;
+    text-decoration: line-through;
+}

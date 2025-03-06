@@ -1,0 +1,61 @@
+@font-face {
+    font-family: 'JetBrains Mono';
+    font-style: normal;
+    font-weight: 400;
+    src: local('JetBrains Mono'), url('./JetBrainsMono[wght].ttf') format('ttf');
+}
+@font-face {
+    font-family: 'JetBrains Mono';
+    font-style: normal;
+    font-weight: 400;
+    src: local('JetBrains Mono'), url('./JetbrainsMonoRegular-RpvmM.ttf') format('ttf');
+}
+@font-face {
+    font-family: 'JetBrains Mono';
+    font-style: italic;
+    font-weight: 400;
+    src: local('JetBrains Mono'), url('./JetBrainsMono-Italic[wght].ttf') format('ttf');
+}
+@font-face {
+    font-family: 'JetBrains Mono';
+    font-style: italic;
+    font-weight: 400;
+    src: local('JetBrains Mono'), url('./JetbrainsMonoItalic-lg91X.ttf') format('ttf');
+}
+@font-face {
+    font-family: 'JetBrains Mono';
+    font-style: normal;
+    font-weight: 500;
+    src: local('JetBrains Mono'), url('./JetbrainsMonoMedium-nRvBM.ttf') format('ttf');
+}
+@font-face {
+    font-family: 'JetBrains Mono';
+    font-style: italic;
+    font-weight: 500;
+    src: local('JetBrains Mono'), url('./JetbrainsMonoMediumItalic-1GDgL.ttf') format('ttf');
+}
+@font-face {
+    font-family: 'JetBrains Mono';
+    font-style: normal;
+    font-weight: 700;
+    src: local('JetBrains Mono'), url('./JetbrainsMonoBold-51Xez.ttf') format('ttf');
+}
+@font-face {
+    font-family: 'JetBrains Mono';
+    font-style: italic;
+    font-weight: 700;
+    src: local('JetBrains Mono'), url('./JetbrainsMonoBoldItalic-6YyW6.ttf') format('ttf');
+}
+@font-face {
+    font-family: 'JetBrains Mono';
+    font-style: normal;
+    font-weight: 800;
+    src: local('JetBrains Mono'), url('./JetbrainsMonoExtrabold-ywLd5.ttf') format('ttf');
+}
+@font-face {
+    font-family: 'JetBrains Mono';
+    font-style: italic;
+    font-weight: 800;
+    src: local('JetBrains Mono'), url('./JetbrainsMonoExtraboldItalic-9YKO5.ttf') format('ttf');
+}
+

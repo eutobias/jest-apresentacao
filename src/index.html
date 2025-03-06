@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Jest</title>
+  <link rel="stylesheet" href="/node_modules/reveal.js/dist/reveal.css" />
+  <link rel="stylesheet" href="/node_modules/reveal.js/dist/theme/black.css" />
+  <link rel="stylesheet" href="assets/fonts/font.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/monokai.css" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section id="slide-1">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="250">
+            <path fill="#99425B"
+              d="M124.129 63.02c0-7.692-5.828-14.165-13.652-16.012L128 .113H41.16l17.563 47.043c-7.578 1.996-13.164 8.356-13.164 15.903 0 5.546 3.058 10.464 7.703 13.496-1.832 2.367-3.953 4.55-6.356 6.62-4.523 3.848-9.539 6.805-14.957 8.766-4.89-2.996-7.008-8.285-5.094-13.02 7.457-2.07 12.88-8.394 12.88-15.827 0-9.133-8.192-16.532-18.22-16.532-10.066 0-18.253 7.434-18.253 16.57 0 4.513 2.035 8.653 5.297 11.61-.286.52-.57 1.035-.856 1.59C4.973 81.438 1.875 87.207.691 93.68c-2.363 12.941 1.508 23.336 10.84 29.215 5.258 3.293 11.047 4.957 17.282 4.957 10.714 0 21.597-4.883 32.109-9.618 7.5-3.363 15.242-6.879 22.863-8.578 2.813-.629 5.746-1 8.844-1.406 6.273-.813 12.754-1.664 18.582-4.734 6.805-3.586 11.45-9.579 12.797-16.457 1.015-5.29 0-10.614-2.61-15.274a15.35 15.35 0 002.73-8.765zm-7.945 0c0 5.14-4.606 9.32-10.27 9.32s-10.27-4.18-10.27-9.32c0-1.665.489-3.254 1.344-4.622.325-.52.735-1.035 1.14-1.48a8.517 8.517 0 011.427-1.219l.043-.039c.324-.222.691-.445 1.058-.664 0 0 .04 0 .04-.039.163-.074.327-.184.492-.258.039 0 .078-.039.12-.039.165-.07.368-.144.57-.219a8.78 8.78 0 00.571-.222c.04 0 .082-.04.121-.04.164-.034.328-.109.489-.144.043 0 .125-.039.164-.039.203-.035.367-.074.57-.11h.043l.61-.113c.042 0 .12 0 .163-.035.164 0 .325-.039.489-.039h.203c.203 0 .41-.035.652-.035h.531c.16 0 .286 0 .446.035h.082c.328.04.652.074.98.149 4.645.886 8.192 4.66 8.192 9.172zM52.527 7.508h64.102l-14.711 39.387c-.61.113-1.223.296-1.832.48l-15.484-28.66L69.074 47.19c-.613-.183-1.265-.296-1.914-.406zM81.664 59.8c-.773-3.477-2.73-6.582-5.5-8.875l8.438-15.457 8.515 15.789c-2.527 2.293-4.36 5.215-5.094 8.543zM61.25 53.96c.203-.04.367-.074.57-.113h.121c.164-.035.329-.035.489-.075h.164c.164 0 .285-.035.449-.035h1.59c.16 0 .285.035.406.035.082 0 .121 0 .203.04.164.035.285.035.45.074.038 0 .081 0 .163.035.204.039.407.074.57.113h.04c.164.035.328.07.488.145.043 0 .082.039.164.039.121.035.285.074.406.148.043 0 .082.035.125.035.16.075.325.114.489.188h.039c.203.07.367.144.531.258h.04c.163.074.327.183.491.257.04 0 .04.04.078.04.164.07.286.183.45.257l.043.035c.488.333.937.704 1.382 1.075l.043.035c.407.406.813.851 1.141 1.332 1.059 1.48 1.672 3.219 1.672 5.105 0 5.141-4.606 9.317-10.27 9.317s-10.27-4.176-10.27-9.317c-.042-4.328 3.259-7.988 7.743-9.023zm-40.102-.262c5.665 0 10.27 4.18 10.27 9.32 0 5.141-4.605 9.32-10.27 9.32-5.664 0-10.27-4.179-10.27-9.32 0-5.14 4.606-9.32 10.27-9.32zm94.79 32.067c-.895 4.73-4.118 8.875-8.844 11.351-4.442 2.332-9.903 3.07-15.649 3.809-3.136.406-6.437.851-9.617 1.554-8.476 1.887-16.625 5.586-24.531 9.133-10.106 4.551-19.645 8.84-28.484 8.84-4.606 0-8.723-1.183-12.633-3.66-8.965-5.621-8.52-16.16-7.457-21.93.976-5.402 3.707-10.468 6.316-15.312.16-.297.285-.555.445-.852.899.297 1.836.52 2.813.668-1.547 7.84 2.851 15.938 11.41 19.934l1.55.738 1.669-.555c7.133-2.293 13.734-6.027 19.562-11.02 3.301-2.812 6.114-5.843 8.477-9.136.937.149 1.875.188 2.812.188 8.477 0 15.606-5.29 17.645-12.391h6.844c2.039 7.137 9.171 12.39 17.648 12.39 3.383 0 6.52-.85 9.207-2.292 1.063 2.773 1.387 5.656.817 8.543zm0 0" />
+          </svg>
+        </div>
+        <h3>Jest</h3>
+        <p>Introdução, boas práticas e <br />um pouquinho mais de conversa</p>
+      </section>
+
+      <section id="slide-2">
+        <section>
+          <h3>Introdução</h3>
+        </section>
+        <section>
+          <div>
+            <img src="assets/images/feature-coverage.png" width="500" />
+          </div>
+          <p class="r-fit-text">
+            O <strong class="green">JEST é um framework de testes</strong> de
+            código aberto,<br />
+            projetado para tornar os testes de código JavaScript<br />
+            simples e eficientes.
+          </p>
+        </section>
+        <section>
+          <div>
+            <img src="assets/images/feature-mocking.png" width="500" />
+          </div>
+          <p class="r-fit-text">
+            Ele é conhecido por sua <br />
+            <strong class="green">configuração zero, execução rápida e recursos poderosos</strong>, <br />
+            como testes de <strong class="green">snapshot e mocking</strong>.
+          </p>
+        </section>
+        <section>
+          <div>
+            <img src="assets/images/feature-fast.png" width="500" />
+          </div>
+          <p class="r-fit-text">
+            Seja para testar componentes React, <br />
+            APIs Node.js ou funções JavaScript simples, <br />
+            <strong class="green">o JEST é uma excelente escolha</strong>.
+          </p>
+        </section>
+      </section>
+
+      <section id="slide-3">
+        <section>
+          <h3>Instalação e configuração</h3>
+        </section>
+        <section>
+          <p>
+            Para instalar o JEST, basta rodar <br />
+            <strong data-trim data-noescape class="yellow">
+              npm install --save-dev jest </strong><br />
+            no diretório do seu projeto.
+          </p>
+        </section>
+
+        <section>
+          <p>
+            Depois de instalado, você pode configurá-lo<br />
+            usando um arquivo <strong class="yellow">jest.config.js</strong><br />
+            ou confiar nas configurações padrão.
+          </p>
+        </section>
+
+        <section>
+          <p>
+            O JEST <strong class="yellow">normalmente funciona imediatamente na maioria<br />
+              dos projetos JavaScript</strong>, o que o torna uma favorito entre<br />
+            desenvolvedores que valorizam a simplicidade.
+          </p>
+        </section>
+
+        <section>
+          <p>Com o JEST instalado, vamos descobrir <br />como escrever seu primeiro teste.</p>
+        </section>
+      </section>
+
+      <section id="slide-4">
+        <section>
+          <h3>Escrevendo Seu Primeiro Teste</h3>
+        </section>
+        <section>
+          <p>Escrever um teste no JEST é tão<br />
+            simples <del>(ou complicado)</del><br />
+            quanto escrever uma função.</p>
+        </section>
+        <section>
+          <p>Um teste básico envolve o uso da função<br />
+            <strong class="blue">test()</strong> ou <strong class="blue">it()</strong>,
+            onde você descreve o caso de teste <br />
+            e fornece uma função de callback com asserções.
+          </p>
+        </section>
+        <section>
+          <p>Exemplo:</p>
+          <pre>
+<code data-trim data-line-numbers class="language-typescript">
+  function soma(a: number, b: number): number {
+    return a + b;
+  }
+
+  test(
+    '1 + 2 deve ser igual a 3', 
+    () => { 
+      expect(soma(1, 2)).toBe(3); 
+    }
+  );
+</code>
+          </pre>
+        </section>
+        <section>
+          <p>Essa simplicidade permite que você foque no<br />
+            que realmente importa, garantir que <strong class="blue">seu código<br />
+              funcione como esperado</strong>.</p>
+        </section>
+
+        <section>
+          <p>Sabendo como escrever testes o próximo passo<br />
+            Será entender os <strong class="blue">matchers</strong> do JEST.</p>
+          </p>
+        </section>
+
+      </section>
+
+      <section id="slide-5">
+        <section>
+          <h3>Entendendo os Matchers</h3>
+        </section>
+        <section>
+          <p>"<strong class="yellow">Matchers</strong> são os blocos fundamentais das<br />
+            asserções do JEST, ajudando você a <strong class="yellow">validar<br />
+              o comportamento do seu código</strong>."</p>
+        </section>
+        <section>
+          <p>O JEST oferece uma variedade de matchers, <br />
+            como <strong class="yellow">toBe, toEqual e toContain</strong>, para comparar <br />
+            valores, objetos e arrays de forma mais segura, <br />limitando os problemas com valores "<strong
+              class="yellow">falsy</strong>".</p>
+        </section>
+        <section>
+          <p>Exemplos <strong class="yellow">Truhty ou Falsy</strong>:</p>
+          <pre>
+<code data-trim data-line-numbers class="language-typescript">
+  test('zero', () => {
+    const z = 0;
+    expect(z).not.toBeNull(); 
+    expect(z).toBeDefined(); 
+    expect(z).not.toBeUndefined(); 
+    expect(z).not.toBeTruthy();
+    expect(z).toBeFalsy();
+  });
+</code>
+          </pre>
+        </section>
+
+        <section>
+          <p>Exemplos <strong class="yellow">Numéricos</strong>:</p>
+          <pre>
+<code data-trim data-line-numbers class="language-typescript">
+  test('dois mais dois', () => {
+    const value = 2 + 2;
+    expect(value).toBeGreaterThan(3);
+    expect(value).toBeGreaterThanOrEqual(3.5);
+    expect(value).toBeLessThan(5);
+    expect(value).toBeLessThanOrEqual(4.5);
+  
+    // toBe e toEqual são equivalentes para números
+    expect(value).toBe(4);
+    expect(value).toEqual(4);
+  });
+</code>
+          </pre>
+        </section>
+
+        <section>
+          <p>Exemplos <strong class="yellow">Floats</strong>:</p>
+          <pre>
+<code data-trim data-line-numbers class="language-typescript">
+  test('adicionando números de ponto flutuante', () => {
+    const value = 0.1 + 0.2;
+    
+    //Isso não vai funcionar
+    expect(value).toBe(0.3);     
+    
+    // Isso funciona.
+    expect(value).toBeCloseTo(0.3); 
+  });
+</code>
+          </pre>
+        </section>
+
+        <section>
+          <p>Exemplos <strong class="yellow">Strings</strong>:</p>
+          <pre>
+<code data-trim data-line-numbers class="language-typescript">
+  test('não existe I em team', () => {
+    expect('team').not.toMatch(/I/);
+  });
+  
+  test('mas existe "stop" em Christoph', () => {
+    expect('Christoph').toMatch(/stop/);
+  });
+</code>
+          </pre>
+        </section>
+
+        <section>
+          <p>Exemplos <strong class="yellow">Arrays e Iteráveis</strong>:</p>
+          <pre>
+<code data-trim data-line-numbers class="language-typescript">
+  const shoppingList = [
+  'arroz',
+  'feijão',
+  'batata',
+];
+
+test('a lista de compras tem leite nela', () => {
+  expect(shoppingList).toContain('leite');
+  expect(new Set(shoppingList)).toContain('leite');
+});
+</code>
+          </pre>
+        </section>
+
+        <section>
+          <p>Há muitos outros <strong class="yellow">matchers</strong> incluídos no JEST,<br />
+            explorem a documentação e se divirtam-se.<br />
+            Vamos para o nosso próximo assunto <strong class="yellow">Snapshots</strong>
+          </p>
+
+        </section>
+      </section>
+
+      <section id="slide-6">
+        <section>
+          <h3>Testes de Snapshot</h3>
+        </section>
+        <section>
+          <p>"Testes de <strong class="green">snapshot</strong> são como <br />
+            tirar uma <del>foto</del> <strong class="green">selfie</strong> da saída do seu código<br />
+            para garantir que ela não mude inesperadamente."</p>
+        </section>
+        <section>
+          <p>Com o código:</p>
+          <pre>
+<code data-trim data-line-numbers class="language-typescript">
+  expect(resultado).toMatchSnapshot()  
+</code>
+          </pre>
+          <p>o JEST captura a saída de uma função <br />
+            ou componente e a salva como referência.<br /></p>
+        </section>
+        <section>
+          <p>Se a saída mudar no futuro, <strong class="green">o JEST alertará você</strong>, <br />
+            ajudando a detectar efeitos colaterais indesejados. <br />
+            É <strong class="green">especialmente útil para componentes de UI</strong>.</p>
+        </section>
+
+        <section>
+          <pre>
+<code data-trim data-line-numbers class="language-typescript">  
+  export const Clickable() {
+    const [clicked, setClicked] = useState(false);
+    
+    const onClick = () => {
+      setClicked(true);
+    };
+    
+    return (
+      <button onClick={onClick}>
+        { clicked ? "Clicked" : "Click" }
+      </button>
+      );
+    }
+  </code>
+</pre>
+        </section>
+
+        <section>
+          <pre><code data-trim data-line-numbers class="language-typescript">
+it('changes after click', () => {
+  const component = renderer.create(<Clickable></Clickable>);
+  let tree = component.toJSON();
+  expect(tree).toMatchSnapshot();
+  
+  renderer.act(() => {
+    tree.props.onClick();
+  });
+  
+  tree = component.toJSON();
+  expect(tree).toMatchSnapshot();
+});
+</code></pre>
+
+        </section>
+
+        <section>
+          <p>Mas e se o seu código depende de dependências<br />
+            externas? É aí que entra o próximo passo <strong class="green">mocking</strong>.</p>
+        </section>
+      </section>
+
+      <section id="slide-7">
+        <section>
+          <h3>Mocking</h3>
+        </section>
+        <section>
+          <p>Mocking permite simular dependências, <br />garantindo que seus testes permaneçam</br /> <strong
+              class="blue">isolados e confiáveis</strong>.</p>
+        </section>
+        <section>
+          <p>O JEST facilita o mocking com</p>
+          <ul>
+            <li><strong class="blue">jest.fn()</strong> para criar funções mockadas</li>
+            <li><strong class="blue">jest.mock()</strong> para mockar módulos inteiros.</li>
+          </ul>
+
+          <p>Por exemplo, você pode mockar uma chamada de API<br />
+            para retornar dados pré-definidos, garantindo que seus testes<br />
+            não dependam de serviços externos.</p>
+        </section>
+        <section>
+          <p>Exemplo <strong class="blue">jest.fn()</strong>:</p>
+          <pre><code data-trim data-line-numbers class="language-typescript">
+const soma = jest.fn((a, b) => 3);
+
+test(
+  'a + b mockado sempre vai ser igual a 3', 
+  () => { 
+    expect(soma(99, 45)).toBe(3); 
+  }
+);
+          </code></pre>
+        </section>
+        <section>
+          <p>Exemplo <strong class="blue">jest.mock()</strong>:</p>
+        </section>
+      </section>
+    </div>
+  </div>
+
+  <script type="module" src="./main.js"></script>
+</body>
+
+</html>
