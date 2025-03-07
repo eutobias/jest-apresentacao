@@ -15,7 +15,35 @@ body, div, p, h1, h2, h3, section {
 }
 
 .red {
-    color: #bb5e66 !important;
+    color: #FF8383 !important;
+}
+
+.purple {
+    color: #AA60C8 !important;
+}
+
+.orange {
+    color: #EB5B00 !important;
+}
+
+.tea {
+    color: #E6E9AF !important;
+}
+
+.sky {
+    color: #BBE9FF !important;
+}
+
+.lgreen {
+    color: #A3FFD6 !important;
+}
+
+.dblue {
+    color: #4379F2 !important;
+}
+
+.dyellow {
+    color: #C8CFA0 !important;
 }
 
 h3 {

@@ -31,7 +31,7 @@
 
       <section id="slide-2">
         <section>
-          <h3>Introdução</h3>
+          <h3 class="green">Introdução</h3>
         </section>
         <section>
           <div>
@@ -68,7 +68,7 @@
 
       <section id="slide-3">
         <section>
-          <h3>Instalação e configuração</h3>
+          <h3 class="yellow">Instalação e configuração</h3>
         </section>
         <section>
           <p>
@@ -102,7 +102,7 @@
 
       <section id="slide-4">
         <section>
-          <h3>Escrevendo Seu Primeiro Teste</h3>
+          <h3 class="blue">Escrevendo Seu Primeiro Teste</h3>
         </section>
         <section>
           <p>Escrever um teste no JEST é tão<br />
@@ -149,21 +149,21 @@
 
       <section id="slide-5">
         <section>
-          <h3>Entendendo os Matchers</h3>
+          <h3 class="purple">Entendendo os Matchers</h3>
         </section>
         <section>
-          <p>"<strong class="yellow">Matchers</strong> são os blocos fundamentais das<br />
-            asserções do JEST, ajudando você a <strong class="yellow">validar<br />
+          <p>"<strong class="purple">Matchers</strong> são os blocos fundamentais das<br />
+            asserções do JEST, ajudando você a <strong class="purple">validar<br />
               o comportamento do seu código</strong>."</p>
         </section>
         <section>
           <p>O JEST oferece uma variedade de matchers, <br />
-            como <strong class="yellow">toBe, toEqual e toContain</strong>, para comparar <br />
+            como <strong class="purple">toBe, toEqual e toContain</strong>, para comparar <br />
             valores, objetos e arrays de forma mais segura, <br />limitando os problemas com valores "<strong
-              class="yellow">falsy</strong>".</p>
+              class="purple">falsy</strong>".</p>
         </section>
         <section>
-          <p>Exemplos <strong class="yellow">Truhty ou Falsy</strong>:</p>
+          <p>Exemplos <strong class="purple">Truhty ou Falsy</strong>:</p>
           <pre>
 <code data-trim data-line-numbers class="language-typescript">
   test('zero', () => {
@@ -179,7 +179,7 @@
         </section>
 
         <section>
-          <p>Exemplos <strong class="yellow">Numéricos</strong>:</p>
+          <p>Exemplos <strong class="purple">Numéricos</strong>:</p>
           <pre>
 <code data-trim data-line-numbers class="language-typescript">
   test('dois mais dois', () => {
@@ -198,7 +198,7 @@
         </section>
 
         <section>
-          <p>Exemplos <strong class="yellow">Floats</strong>:</p>
+          <p>Exemplos <strong class="purple">Floats</strong>:</p>
           <pre>
 <code data-trim data-line-numbers class="language-typescript">
   test('adicionando números de ponto flutuante', () => {
@@ -215,7 +215,7 @@
         </section>
 
         <section>
-          <p>Exemplos <strong class="yellow">Strings</strong>:</p>
+          <p>Exemplos <strong class="purple">Strings</strong>:</p>
           <pre>
 <code data-trim data-line-numbers class="language-typescript">
   test('não existe I em team', () => {
@@ -230,7 +230,7 @@
         </section>
 
         <section>
-          <p>Exemplos <strong class="yellow">Arrays e Iteráveis</strong>:</p>
+          <p>Exemplos <strong class="purple">Arrays e Iteráveis</strong>:</p>
           <pre>
 <code data-trim data-line-numbers class="language-typescript">
   const shoppingList = [
@@ -248,9 +248,9 @@ test('a lista de compras tem leite nela', () => {
         </section>
 
         <section>
-          <p>Há muitos outros <strong class="yellow">matchers</strong> incluídos no JEST,<br />
+          <p>Há muitos outros <strong class="purple">matchers</strong> incluídos no JEST,<br />
             explorem a documentação e se divirtam-se.<br />
-            Vamos para o nosso próximo assunto <strong class="yellow">Snapshots</strong>
+            Vamos para o nosso próximo assunto <strong class="purple">Snapshots</strong>
           </p>
 
         </section>
@@ -258,11 +258,11 @@ test('a lista de compras tem leite nela', () => {
 
       <section id="slide-6">
         <section>
-          <h3>Testes de Snapshot</h3>
+          <h3 class="orange">Testes de Snapshot</h3>
         </section>
         <section>
-          <p>"Testes de <strong class="green">snapshot</strong> são como <br />
-            tirar uma <del>foto</del> <strong class="green">selfie</strong> da saída do seu código<br />
+          <p>"Testes de <strong class="orange">snapshot</strong> são como <br />
+            tirar uma <del>foto</del> <strong class="orange">selfie</strong> da saída do seu código<br />
             para garantir que ela não mude inesperadamente."</p>
         </section>
         <section>
@@ -276,9 +276,9 @@ test('a lista de compras tem leite nela', () => {
             ou componente e a salva como referência.<br /></p>
         </section>
         <section>
-          <p>Se a saída mudar no futuro, <strong class="green">o JEST alertará você</strong>, <br />
+          <p>Se a saída mudar no futuro, <strong class="orange">o JEST alertará você</strong>, <br />
             ajudando a detectar efeitos colaterais indesejados. <br />
-            É <strong class="green">especialmente útil para componentes de UI</strong>.</p>
+            É <strong class="orange">especialmente útil para componentes de UI</strong>.</p>
         </section>
 
         <section>
@@ -316,49 +316,230 @@ it('changes after click', () => {
   expect(tree).toMatchSnapshot();
 });
 </code></pre>
+        </section>
 
+        <section>
+          <p>Ao executar os testes pela primeira vez, um arquivo <br />
+            <strong class="orange">nomedotest.snap</strong> será criado na pasta do teste<br />
+            e nas próximas execuções, o JEST comparará <br />
+            a saída com o arquivo de referência.
+          </p>
+        </section>
+
+        <section>
+          <p>Caso um test falhe, você precisará descobrir<br /> se a mudança é proposital ou esperada.</p>
+          <p>Nesse cenário, basta atualizar o arquivo de referência,<br />
+            rodando <strong class="orange">jest -u</strong> para substituir o snapshot existente.</p>
+          </p>
+          </p>
         </section>
 
         <section>
           <p>Mas e se o seu código depende de dependências<br />
-            externas? É aí que entra o próximo passo <strong class="green">mocking</strong>.</p>
+            externas? É aí que entra o próximo passo <strong class="orange">mocking</strong>.</p>
         </section>
       </section>
 
       <section id="slide-7">
         <section>
-          <h3>Mocking</h3>
+          <h3 class="tea">Mocking</h3>
         </section>
         <section>
           <p>Mocking permite simular dependências, <br />garantindo que seus testes permaneçam</br /> <strong
-              class="blue">isolados e confiáveis</strong>.</p>
+              class="tea">isolados e confiáveis</strong>.</p>
         </section>
         <section>
           <p>O JEST facilita o mocking com</p>
           <ul>
-            <li><strong class="blue">jest.fn()</strong> para criar funções mockadas</li>
-            <li><strong class="blue">jest.mock()</strong> para mockar módulos inteiros.</li>
+            <li><strong class="tea">jest.fn()</strong> para criar funções mockadas</li>
+            <li><strong class="tea">jest.mock()</strong> para mockar módulos inteiros.</li>
           </ul>
 
-          <p>Por exemplo, você pode mockar uma chamada de API<br />
-            para retornar dados pré-definidos, garantindo que seus testes<br />
+          <p>Por exemplo, você pode mockar uma chamadas<br />
+            de <strong class="tea">API, Componentes, Hooks </strong> para retornar <br />
+            dados pré-definidos, garantindo que seus testes<br />
             não dependam de serviços externos.</p>
         </section>
-        <section>
-          <p>Exemplo <strong class="blue">jest.fn()</strong>:</p>
-          <pre><code data-trim data-line-numbers class="language-typescript">
-const soma = jest.fn((a, b) => 3);
 
-test(
-  'a + b mockado sempre vai ser igual a 3', 
-  () => { 
-    expect(soma(99, 45)).toBe(3); 
-  }
-);
-          </code></pre>
+        <section>
+          <p>Vamos ver um exemplo testando components<br />
+            com <strong class="tea">jest.fn()</strong> e <strong class="tea">jest.mock()</strong></p>
+        </section>
+
+        <section>
+          <p>Tendo os seguintes componentes:</p>
+          <pre><code data-trim data-line-numbers class="language-typescript">
+  const ChildrenA = () => <p>Children A</p>;
+  
+  const ChildrenB = () => <p>Children B</p>;
+
+  const RenderDynamicChildren = ({ kind } : { kind: "A" | "B" }) => {
+    return kind === "A" ? <ChildrenA></ChildrenA> : <ChildrenB></ChildrenB>;
+  };
+</code></pre>
+        </section>
+
+        <section>
+          <p>Testaremos se <strong class="tea">RenderDynamicChildren</strong><br />
+            se comporta como esperado</p>
+
+          <pre><code data-trim data-line-numbers class="language-typescript">
+  jest.mock("./ChildrenA", () => {
+    return {
+      default: jest.fn().mockReturnValue(<div data-testid="children-a">A</div>),
+    };
+  });
+
+  jest.mock("./ChildrenB", () => {
+    return {
+      default: jest.fn().mockReturnValue(<div data-testid="children-b">B</div>),
+    };
+  });
+
+  describe("RenderDynamicChildren behavior", () => {
+    afterEach(() => {
+      jest.clearAllMocks();
+    });
+  
+    test("should render children-a", () => {
+      render(<RenderDynamicChildren kind="A"></RenderDynamicChildren>);
+  
+      expect(ChildrenA).toHaveBeenCalled();
+      expect(ChildrenB).not.toHaveBeenCalled();
+      expect(screen.getByTestId("children-a")).toBeInTheDocument();
+    });
+  
+    test("should render children-b", () => {
+      render(<RenderDynamicChildren kind="B"></RenderDynamicChildren>);
+  
+      expect(ChildrenA).not.toHaveBeenCalled();
+      expect(ChildrenB).toHaveBeenCalled();
+      expect(screen.getByTestId("children-b")).toBeInTheDocument();
+    });
+  });
+</code></pre>
+        </section>
+
+        <section>
+          <p>Agora que cobrimos o mocking, vamos discutir como <strong class="tea">organizar seus testes</strong> de
+            forma eficaz.</p>
+        </section>
+      </section>
+
+      <section id="slide-8">
+        <section>
+          <h3 class="sky">Organizando Testes</h3>
+        </section>
+
+        <section>
+          <p>"Uma suíte de testes bem organizada é <strong class="sky">essencial</strong><br /> para manter a <strong
+              class="sky">legibilidade e a escalabilidade</strong>."</p>
+        </section>
+
+        <section>
+          <p>Use blocos <strong class="sky">describe()</strong> para agrupar<br />
+            testes relacionados e <strong class="sky">beforeEach()</strong> ou <br />
+            <strong class="sky">afterEach()</strong> para configuração e finalização.
+          </p>
+        </section>
+
+        <section>
+          <p>Essa estrutura facilita a navegação pelos seus testes<br />
+            e garante consistência entre os casos de teste. <br />
+            Pense nisso como organizar seu código, <br />
+            seu "eu" do futuro agradecerá!</p>
+        </section>
+      </section>
+
+      <section id="slide-9">
+        <section>
+          <h3 class="lgreen">Testando Código Assíncrono</h3>
         </section>
         <section>
-          <p>Exemplo <strong class="blue">jest.mock()</strong>:</p>
+          <p>Testar código assíncrono pode ser complicado,<br />
+            mas o JEST facilita muito isso.</p>
+        </section>
+        <section>
+          <p>O JEST suporta <strong class="lgreen">promises, async/await<br />
+              e callbacks</strong> nativamente. Você pode usar essa syntax <br />
+            para testar promises.</p>
+
+        </section>
+        <section>
+          <p>Exemplo:</p>
+
+          <pre><code data-trim data-line-numbers class="language-typescript">      
+  test("teste assíncrono", async () => {
+    await expect(funcaoAssincrona()).resolves.toBe(valor)
+  });
+</code></pre>
+        </section>
+      </section>
+
+      <section id="slide-10">
+        <section>
+          <h3 class="red">Desempenho dos Testes</h3>
+        </section>
+        <section>
+          <p>O JEST é projetado para ser rápido, mas há maneiras<br />de torná-lo ainda mais eficiente.</p>
+        </section>
+        <section>
+          <p>Use o modo <strong class="red">--watch</strong> para rodar apenas os testes<br />
+            relevantes duranteo desenvolvimento e aproveite <br />
+            <strong class="red">--coverage</strong> para identificar código não testado.
+          </p>
+        </section>
+        <section>
+          <p>A execução paralela de testes é <strong class="red">habilitada <br />
+              por padrão</strong>, garantindo que sua suíte<br />
+            de testes rode de forma eficiente.</p>
+        </section>
+      </section>
+
+      <section id="slide-11">
+        <section>
+          <h3 class="dblue">JEST com CI/CD</h3>
+        </section>
+        <section>
+          <p>O JEST se integra perfeitamente com <strong class="dblue">pipelines <br />
+              de CI/CD</strong>, garantindo que seu código seja <br />
+            testado antes da implantação.</p>
+        </section>
+        <section>
+          <p>Ferramentas como <strong class="dblue">GitHub Actions e Jenkins</strong><br />
+            podem rodar os testes do JEST, fornecendo feedback </br>
+            instantâneo em pull requests e builds.</p>
+        </section>
+        <section>
+          <p>Essa integração ajuda a manter a qualidade do<br />
+            código e evita que bugs passem despercebidos.</p>
+        </section>
+        <section>
+          <p></p>
+        </section>
+      </section>
+
+      <section id="slide-12">
+        <section>
+          <h3 class="dyellow">Recapitulação e Principais Aprendizados</h3>
+        </section>
+        <section>
+          <p>Não estariamos exagerando ao dizer que o<br />
+            JEST é um <strong class="dyellow">divisor de águas para testes</strong> em JavaScript.</p>
+        </section>
+        <section>
+          <p>Cobrimos sua <strong class="dyellow">facilidade de uso</strong>, recursos<br />
+             poderosos como <strong class="dyellow">mocking e testes de snapshot</strong>, e <br />
+             boas práticas para escrever testes eficazes.</p>
+        </section>
+        <section>
+          <p>A velocidade, simplicidade e capacidade de<br />
+            integração do JEST o tornam <strong class="dyellow">uma escolha líder<br />
+            para desenvolvedores</strong> ao redor do mundo.</p>
+        </section>
+        <section>
+          <p>Obrigado por acompanhar essa jornada pelo JEST<br/>
+            <strong class="dyellow">agora é a sua vez de fazer perguntas</strong>!</p>
         </section>
       </section>
     </div>
